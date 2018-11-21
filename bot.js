@@ -1,55 +1,64 @@
-const Discord = require("discord.js");
+
+const Discord = require("discord.js")
 const client = new Discord.Client();
-var prefix = "-";
-var adminprefix = '-'
-
+var prefix = "#"
 
 client.on('ready', () => {
 console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on('ready', () => {
-console.log(`Logged in as ${client.user.tag}!`);
+client.on('message', function(message) {
+    const myID = "323160008411971585";
+    let args = message.content.split(" ").slice(1).join(" ");
+    if(message.content.startsWith(prefix + "sn")) {
+                if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setUsername(args);
+        message.channel.send('**SetName,Done!**').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "st")) {
+                if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setGame(args , 'https://twitch.tv/6xlez1');
+        message.channel.send('**Streaming,Done!🎶**').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "ply")) {
+                        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setGame(args);
+        message.channel.send('**Playing,Done!🎶**').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "ls")) {
+                        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setActivity(args, {type:'LISTENING'});
+        message.channel.send('**Listening,Done!🎶**').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "wt")) {
+                        if(message.author.id !== myID) return;
+            if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+        client.user.setActivity(args, {type:'WATCHING'});
+        message.channel.send('**Watching,Done!🎶**').then(msg => {
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    } else if(message.content.startsWith(prefix + "setavatar")) {
+                        if(message.author.id !== myID) return;
+        client.user.setAvatar(args);
+        message.channel.send(':white_check_mark: Done!').then(msg => {
+                if(!args) return message.reply('اكتب الحالة اللي تريدها.');
+           msg.delete(5000);
+          message.delete(5000);
+        });
+    }
 });
 
-client.on('ready', () => {
-console.log(`Logged in as ${client.user.tag}!`);
-});
-
-
-
-const developers = ["323160008411971585","id"]
-client.on('message', message => {
-    var argresult = message.content.split(` `).slice(1).join(' ');
-      if (!developers.includes(message.author.id)) return;
-      
-  if (message.content.startsWith(adminprefix + 'ply')) {
-    client.user.setGame(argresult);
-      message.channel.send(`**✅ | Playing  To : ${argresult}** `)
-  } else 
-     if (message.content === (adminprefix + "leave")) {
-    message.guild.leave();        
-  } else  
-  if (message.content.startsWith(adminprefix + 'wt')) {
-  client.user.setActivity(argresult, {type:'WATCHING'});
-      message.channel.send(`**✅ | Watching To :  ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'ls')) {
-  client.user.setActivity(argresult , {type:'LISTENING'});
-      message.channel.send(`**✅ | LISTENING To : ${argresult}**`)
-  } else 
-  if (message.content.startsWith(adminprefix + 'ss')) {
-    client.user.setGame(argresult, "https://www.twitch.tv/dream");
-      message.channel.send(`**✅ | Streaming To : ${argresult}**`)
-  }
-  if (message.content.startsWith(adminprefix + 'setname')) {
-  client.user.setUsername(argresult).then
-      message.channel.send(`Changing The Name To ..**${argresult}** `)
-} else
-if (message.content.startsWith(adminprefix + 'setava')) {
-  client.user.setAvatar(argresult);
-    message.channel.send(`Changing The Avatar To :**${argresult}** `);
-}
-});
-
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN); 
