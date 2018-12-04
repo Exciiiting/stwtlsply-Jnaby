@@ -14,10 +14,8 @@ console.log(`Logged in as ${client.user.tag}!`);
 const adminprefix = "-";
 const developers = ['479753602156462090'];
 
-console.log("Randy ");
-
 client.on('ready', () => {
-    console.log(`Logged as ${client.user.tag}`)
+    console.log(`Logged as ${client.user.tag}By : Randy`)
 })
 
 client.on('message', message => {
@@ -26,31 +24,29 @@ client.on('message', message => {
   if (message.content.startsWith(adminprefix + 'ply')) {
     client.user.setGame(argresult);
       message.channel.send(`تم تغيير البلاينق الى   ${argresult}`)
-   msg.delete(500);
-          message.delete(500);
-} else if (message.content === (adminprefix + "leave")) {
+  } else 
+     if (message.content === (adminprefix + "leave")) {
     message.guild.leave();        
-   msg.delete(500);
-          message.delete(500);
-} else  if (message.content.startsWith(adminprefix + 'wt')) {
+  } else  
+  if (message.content.startsWith(adminprefix + 'wt')) {
   client.user.setActivity(argresult, {type:'WATCHING'});
       message.channel.send(`تَم تغيير الواتشينق الى   ${argresult}`)
-   msg.delete(500);
-          message.delete(500);
-} else if (message.content.startsWith(adminprefix + 'ls')) {
+  } else 
+  if (message.content.startsWith(adminprefix + 'ls')) {
   client.user.setActivity(argresult , {type:'LISTENING'});
       message.channel.send(`تَم تغيير الليسينينق الى   ${argresult}`)
-   msg.delete(500);
-          message.delete(500);
-} else if (message.content.startsWith(adminprefix + 'st')) {
+  } else
+  if (message.content.startsWith(adminprefix + 'st')) {
     client.user.setGame(argresult, "https://www.twitch.tv/Randy");
       message.channel.send(`تم تغييرك حالتك بالتويتش الى   ${argresult}`)
   }
   if (message.content.startsWith(adminprefix + 'sn')) {
   client.user.setUsername(argresult).then
       message.channel.send(`جاري تغيير الأسم لـ ..${argresult} `)
- msg.delete(500);
-          message.delete(500);
+} else
+if (message.content.startsWith(adminprefix + 'sa')) {
+  client.user.setAvatar(argresult);
+    message.channel.send(`جاري تغيير الأفتار... : `);
 }
 });
 
