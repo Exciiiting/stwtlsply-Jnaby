@@ -14,7 +14,7 @@ client.on('message', function(message) {
                 if(message.author.id !== myID) return;
             if(!args) return message.reply('اكتب الحالة اللي تريدها.');
         client.user.setUsername(args);
-        message.channel.send('**SetName,Done!**').then(msg => {
+        message.channel.send('**The situation has changed to** : ${argresult} ').then(msg => {
            msg.delete(500);
           message.delete(500);
         });
@@ -22,7 +22,7 @@ client.on('message', function(message) {
                 if(message.author.id !== myID) return;
             if(!args) return message.reply('اكتب الحالة اللي تريدها.');
         client.user.setGame(args , 'https://twitch.tv/6xlez1');
-        message.channel.send('**Streaming,Done!🎶**').then(msg => {
+        message.channel.send('**The situation has changed to** : `Streaming To : ${argresult}` ').then(msg => {
            msg.delete(500);
           message.delete(500);
         });
