@@ -12,10 +12,10 @@ console.log(`Logged in as ${client.user.tag}!`);
 
 
 const adminprefix = "-";
-const developers = ['479753602156462090'];
+const developers = ['323160008411971585'];
 
 client.on('ready', () => {
-    console.log(`Logged as ${client.user.tag}By : Randy`)
+    console.log(`Logged as ${client.user.tag}By : `)
 })
 
 client.on('message', message => {
