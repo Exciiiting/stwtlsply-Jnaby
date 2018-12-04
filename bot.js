@@ -54,6 +54,8 @@ client.on('message', message => {
 } els if (message.content.startsWith(adminprefix + 'sa')) {
   client.user.setAvatar(argresult);
     message.channel.send(`جاري تغيير الأفتار... : `);
+   msg.delete(500);
+          message.delete(500);
 }
 });
 
