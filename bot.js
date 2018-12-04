@@ -51,11 +51,6 @@ client.on('message', message => {
       message.channel.send(`جاري تغيير الأسم لـ ..${argresult} `)
  msg.delete(500);
           message.delete(500);
-} els if (message.content.startsWith(adminprefix + 'sa')) {
-  client.user.setAvatar(argresult);
-    message.channel.send(`جاري تغيير الأفتار... : `);
-   msg.delete(500);
-          message.delete(500);
 }
 });
 
